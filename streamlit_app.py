@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 
 
-st.set_page_config(page_title="Base Dictionary Update", page_icon='🗃️', 
+st.set_page_config(page_title="Base Dictionary Update", page_icon='random', 
                 layout="wide",
                 initial_sidebar_state="expanded")
 
@@ -63,9 +63,9 @@ if uploaded_file is not None:
 
     # update the new tests to base dictionary
     for key, value in new_dict.items():
-        # if the new test is already in the base dicitonary
+        # if the new test is already in the base dicitonary, update the old one
         if key in base_dict.keys():
-            pass # not sure about it. Replace or keep the original???
+            base_dict[key] = value
         
         # the test is not in the dictionary, add the test to base
         else:
@@ -82,7 +82,3 @@ if uploaded_file is not None:
         file_name = new_file_name,
         data = json_dict
     )
-
-    
-    
-    
